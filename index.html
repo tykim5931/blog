@@ -2,14 +2,36 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Blog Home</title>
+        <title>TaeyunKim</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <a href="./linearAlgebra/algebra.html">Linear Algebra</a>
-        <a href="./optimization/optimization.html">Optimization</a>
-        <a href="./dl/deepLearning.html">Deep Learning</a>
-        <a href="./ml/machineLearning.html">Machine Learning</a>
-        <a href="./cv/vision.html">Computer Vision</a>
-        <a href="./cg/graphics.html">Computer Graphics</a>
+        <script src="./index.js"></script>
+        <div class="nav">
+            <div class="nav-items">
+                <!--Research Interest, Download CV, contacts-->
+                <div class="nav-item active" >
+                    <button onclick="openTab('home')">Home</button> 
+                </div>
+                <!--Projects I've done-->
+                <div class="nav-item">
+                    <button onclick="openTab('projects')">Projects</button>
+                </div>
+                <!--BLOG files-->
+                <div class="nav-item">
+                    <button onclick="openTab('blog')">Blog</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab-body">
+            <div class="tab-content" id="home">
+                <h2>Home</h2>
+            </div>
+            <div class="tab-content" id="projects" style="display: none;">
+                <iframe class="tab-inbox" src="./projects/proj_main.html"></iframe>
+            </div>
+            <div class="tab-content" id="blog" style="display: none;">
+                <h2>Blog</h2>
+            </div>
     </body>
 </html>
