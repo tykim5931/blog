@@ -8,34 +8,82 @@
       Machine Learning for detecting drivers' drowsiness
     </h1>
     <div class="blog-content-block">
-      <h2>
-        1. Comparing and analyzing machine learning models for training driver's
-        drowsiness
-      </h2>
       <p>
-        I trained machine learning and deep learning models to predict a
+        With a keen interest in neuroscience and curiosity in HCI technology, I
+        was drawn to the topic of brain-computer interaction and worked as an
+        undergraduate research intern for approximately seven months at DGIST's
+        BRAIN LAB. There, I focused on building an AI model to predict a
         driver's level of sleepiness based on brain signals. I managed entire
         learning process from designing and extracting training data from raw
         data, constructing models, training adn analyzing the results.
       </p>
-
+    </div>
+    <div class="blog-content-block">
+      <h2>1. Extracting train dataset from raw brain signal data</h2>
       <p>
-        The link is directed to ROS classic wiki page. I used ROS classic, but
-        actually ROS2 is improved version. Also, in case of you are using
-        python3 for development, you surely need to use ROS2 for compatiblity.
+        There are various devices for collecting brain signals. I was able to
+        work with fNIRS, PPG, and EEG data, which respectively represent brain
+        oxygenation, blood flow, and electrical signals. Each data type has n
+        channels depending on sensor and electrode placement. For machine
+        learning, I used fNIRS data as the initial training data. I needed to
+        analyze drowsiness level based on m-minute data from n channels
+        according to brain region. I believed that changes in oxygenation
+        contain information on brain activity and drowsiness, so I extracted
+        statistical information such as average, peak, and skewness from
+        10-second windows. By aggregating k data extracted for each window, n
+        channels, and m' windows, I obtained a (k x n x m) size dataset.
+      </p>
+    </div>
+    <div class="blog-content-block">
+      <h2>2. Training machine learning models</h2>
+      <p>
+        I utilized various machine learning models such as LDA, KNN, and SVM
+        through sklearn. Among them, SVM showed the best performance, so I
+        continued the experiment with SVM using linear, Gaussian, and polynomial
+        kernels. However, the results showed a low performance with an average
+        f1 score of 0.4. Therefore, I decided to conduct a data evaluation
+        experiment, considering that the preprocessed data may not fully capture
+        the necessary information.
+      </p>
+    </div>
+    <div class="blog-content-block">
+      <h2>3. Analyzing training dataset</h2>
+      <p>
+        The first issue is that the data used consisted of randomly shuffled
+        non-sleep/half-sleep/sleep state fNIRS signals from multiple subjects.
+        The goal was to detect the half-sleep state, but due to the imbalance
+        between the non-sleep/sleep state signals and the half-sleep state
+        signals, the experiment was conducted by randomly extracting data and
+        equalizing the amount of each label data. The problem with this approach
+        is that the performance of such a classifier cannot be trusted because
+        the training and evaluation sets are divided within the randomly
+        selected data. For example, if the randomly selected data happens to
+        belong to one subject, the classification performance is very likely to
+        be good.
       </p>
       <p>
-        We installed an industrial-grade Linux PC in the trunk of the car,
-        connected the vehicle and the computer through CAN communication, and
-        exchanged signals between the car and user application as ROS topics.
-        Using ROS, we gained a route to communicate with car. So here, we were
-        able to subscribe information of car ... such as steer, velocity, etc
-        ... and send command to the car ... such as break=10, steer=-10 ...
+        Also, due to the large size of the dataset, feature selection and
+        reduction were performed by training the machine learning model based on
+        the importance of the features. However, there were issues with this
+        feature selection process, such as even the most important features
+        having evaluation importance of 2% or less.
       </p>
       <p>
-        Run roscore, run your programs which subscribes & publishes, check if
-        your rosnodes are set properly by your design, and jump into coding the
-        car's brain!
+        Despite trying various feature selection methods, I could not achieve
+        good classification performance in machine learning. Therefore, I
+        decided to introduce deep learning.
+      </p>
+    </div>
+    <div class="blog-content-block">
+      <h2>4. Building & Training CNN+LSTM deep learning model</h2>
+      <p>
+        After researching various papers, it was decided to use CNN+LSTM. Since
+        the data was 2-dimensional in terms of channels and signals over time, a
+        1-second window's features were extracted using CNN and passed through
+        LSTM to preserve spatial locality between channels (i.e., brain regions)
+        and temporal locality over time. The model was implemented using Keras,
+        and the final classification performance was recorded as approximately
+        62% for accuracy, precision, and recall metrics.
       </p>
     </div>
   </div>

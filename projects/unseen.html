@@ -7,25 +7,63 @@
     <h1 class="blog-title">Predicting unseen danger in road circumstance</h1>
     <div class="blog-content-block">
       <h2>1. Why should car predict unseen danger in road scene?</h2>
-      <p></p>
-
       <p>
-        The link is directed to ROS classic wiki page. I used ROS classic, but
-        actually ROS2 is improved version. Also, in case of you are using
-        python3 for development, you surely need to use ROS2 for compatiblity.
+        There are many unpredictable events that can happen on the road. The
+        ultimate goal of autonomous vehicles is to detect and predict signals
+        that even drivers cannot see on the road and warn about them. While
+        developing the longitudinal control of autonomous vehicles, particularly
+        the AEB system, I felt that the simplest form of danger detection
+        (emergency stop when an obstacle overlaps my path) is not safe enough.
+        Small parts that have fallen off due to vehicle accidents can cause
+        large secondary accidents. However, it is impossible to introduce all
+        possible dangerous situations that can occur in vehicles on a
+        case-by-case basis. This is because accidents are unpredictable.
       </p>
       <p>
-        We installed an industrial-grade Linux PC in the trunk of the car,
-        connected the vehicle and the computer through CAN communication, and
-        exchanged signals between the car and user application as ROS topics.
-        Using ROS, we gained a route to communicate with car. So here, we were
-        able to subscribe information of car ... such as steer, velocity, etc
-        ... and send command to the car ... such as break=10, steer=-10 ...
+        Therefore, the vehicle should be able to predict even the unseen data as
+        potential risks, and I aimed to solve this problem with a deep learning
+        model trained on accident scenario videos.
       </p>
+    </div>
+    <div class="blog-content-block">
+      <h2>2. CarCrash dataset and BeamNG</h2>
       <p>
-        Run roscore, run your programs which subscribes & publishes, check if
-        your rosnodes are set properly by your design, and jump into coding the
-        car's brain!
+        I needed to collect accident situation data, and after some
+        investigation, I found the
+        <a href="https://paperswithcode.com/dataset/ccd">CarCrash Dataset</a>,
+        which I decided to use to train my model initially. However, the problem
+        was that the dataset had only about 1500 five-second accident videos,
+        which was not enough data, and since it was a real accident video
+        dataset, there was a possibility that each video contained incorrect
+        information due to noise differences, and most of the accident videos
+        were very similar. To solve this problem, my supervisor suggested using
+        BeamNG for collecting accident video.
+      </p>
+      <div class="flexbox">
+        <img src="../assets/beamng.PNG" width="200px" />
+      </div>
+    </div>
+    <div class="blog-content-block">
+      <h2>3. Fusion of ViViT and DANN</h2>
+      <p>
+        To choose a model that could efficiently learn from a small dataset, I
+        decided to use the
+        <a href="https://arxiv.org/abs/2103.15691">ViViT</a> (video vision
+        transformer) model, which is known to perform well on video
+        classification tasks with regularization techniques.
+        <br />
+        Furthermore, to reduce the gap between the training and testing datasets
+        due to the differences in background, blurriness, and light reflection,
+        I decided to incorporate domain adaptation using the
+        <a href="https://arxiv.org/abs/1505.07818">DANN</a> (Domain Adversarial
+        Neural Network) model proposed by Yaroslav Ganin et.al.
+        <br />
+        I devised a design to apply DANN by attaching a domain classifier and
+        gradient reversal layer to the ViViT model. The goal was to accurately
+        classify accident and non-accident situations using a small amount of
+        video data, with a large gap between the training and test data due to
+        factors such as differences in backgrounds, blur levels, and light
+        reflections.
       </p>
     </div>
   </div>
