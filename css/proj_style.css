@@ -19,6 +19,6 @@ body {
 }
 .flexbox {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   gap: 20px;
 }
