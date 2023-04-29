@@ -113,15 +113,17 @@ body::-webkit-scrollbar {
   padding: 100px 0 0 0;
 }
 .project-item {
+  cursor: pointer;
   display: flex;
   width: 120;
-  margin: 40px 20px;
+  padding: 20px 10px;
   gap: 20px;
   border: 1px 0px solid;
+  border-radius: 10px;
   align-items: center;
 }
-.project-item.clickable {
-  cursor: pointer;
+.project-item:hover {
+  background-color: aliceblue;
 }
 .project-title {
   font-size: 20px;
