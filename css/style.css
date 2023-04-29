@@ -113,7 +113,6 @@ body::-webkit-scrollbar {
   padding: 100px 0 0 0;
 }
 .project-item {
-  cursor: pointer;
   display: flex;
   width: 120;
   padding: 20px 10px;
@@ -122,7 +121,8 @@ body::-webkit-scrollbar {
   border-radius: 10px;
   align-items: center;
 }
-.project-item:hover {
+.project-item.clickable:hover {
+  cursor: pointer;
   background-color: aliceblue;
   -webkit-transition: background-color 300ms linear;
   -ms-transition: background-color 300ms linear;
