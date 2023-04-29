@@ -124,6 +124,9 @@ body::-webkit-scrollbar {
 }
 .project-item:hover {
   background-color: aliceblue;
+  -webkit-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color 300ms linear;
 }
 .project-title {
   font-size: 20px;
