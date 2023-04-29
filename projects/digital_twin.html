@@ -6,7 +6,7 @@
   <div class="bolg-content">
     <h1 class="blog-title">Delivery drone digital twin: Finding trajactory</h1>
     <div class="blog-content-block">
-      <h2>1. ROS framework and CAN connection</h2>
+      <h2>1. Abstraction of porject</h2>
       <p>
         The use of 3D data has endless applications, but it would be
         particularly useful in fields such as digital twin systems, where it can
@@ -14,6 +14,62 @@
         studied algorithms such as Neural A* and simple waypoint to enable a
         drone object to navigate a 3D city model with rigid body properties and
         reach its destination.
+      </p>
+    </div>
+    <div class="blog-content-block">
+      <h2>2. A* pathfinding</h2>
+      <h3>A* algorithm</h3>
+      <p>
+        A* search algorithm is a graph traversal and path search algorithm.
+        Unity provides pathfinding module based on A* algorithm. Starting from a
+        specific node, in my case, from warehouse, it aims to find a path to the
+        given goal node, in our case, delivery point, having smallest cost.
+        <br />
+        It is kind of heuristic method. A* expands nodes based on the cost of
+        getting the node and an estimated cost to reach the goal from that node.
+        A* expand nodes with the lowest total cost.
+      </p>
+      <p>
+        I considered using the A* algorithm as a pathfinding method for drones,
+        assuming that the drone has access to map information, specifically the
+        starting and ending points and road network information of the city.
+        However, there are several issues with this assumption. The entire map
+        information of the city may be too heavy for the drone to carry, as it
+        needs to confirm sensor information, self-check problems, and perform
+        transmission and reception roles with the server. Additionally, the A*
+        algorithm uses a somewhat greedy approach that requires scanning through
+        all nodes, which could potentially slow down real-time systems such as
+        drones.
+      </p>
+      <h3>Neural A*</h3>
+      <p>
+        Taking into account these issues, I considered incorporating an
+        algorithm such as neural A*. This is a method proposed by Ryo Yonetani
+        et al. in their paper
+        <a href="https://arxiv.org/abs/2009.07476"
+          >"Path Planning using Neural A* Search"</a
+        >, which uses neural networks to pre-process the calculations needed for
+        pathfinding, resulting in faster speed and greater accuracy than A*. The
+        path is dynamically adjusted, continuously improving the route rather
+        than being statically determined. The first neural network is used to
+        predict the distance between the current node and the goal node, while
+        the second neural network checks the validity of the path. Through this
+        method, the drone can utilize real-time images it collects, enabling the
+        investigation of a pathfinding method for drone delivery that reflects
+        the highly volatile urban environment.
+      </p>
+    </div>
+    <div class="blog-content-block">
+      <h2>3. Further Research</h2>
+      <p>
+        While Neural A* pathfinding is still a heavy method to implement on
+        drones, if a digital twin is created and communication between the drone
+        and server is smooth through the city's CPS network, the pathfinding can
+        be handled by the server in the digital twin and only the motor values
+        of each propeller can be communicated to the actual drone, allowing it
+        to reach the destination with much lighter processing. Given the
+        opportunity for further research, I would like to return to this problem
+        and study the weight reduction of delivery drones using digital twins.
       </p>
     </div>
   </div>
