@@ -1,71 +1,147 @@
-body{
+html {
+  scroll-behavior: smooth;
 }
+body {
+  /* min-width: 600px; */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .tab-body {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    /* overflow-y: scroll; */
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+  overflow-x: scroll;
 }
-.tab-content{
-    display: block;
-    width: 800px;
+.tab-content {
+  display: block;
+  max-width: 800px;
 }
-.tab-inbox{
-    width: 100%;
-    height:100%;
-    border:none;
+.tab-inbox {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 .tab-content::-webkit-scrollbar {
-    display: none;
-  }
-body::-webkit-scrollbar {
-    display: none;
-  }
-.nav {
-    height: fit-content;
-    padding:8px 0;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top:0;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0px 3px 3px rgba(202, 202, 202, 0.3);
-    backdrop-filter: blur(5px);
+  display: none;
 }
-.nav-items {
-    width: 800px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+body::-webkit-scrollbar {
+  display: none;
+}
+.navigation-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 3px 3px rgba(202, 202, 202, 0.3);
+  backdrop-filter: blur(5px);
+}
+.nav {
+  display: flex;
+  width: 800px;
 }
 .nav-item {
-    text-align: center;
-    height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
 }
 
 .nav-item :hover {
-    border-radius: 10px;
-    background-color: rgba(222, 222, 222, 0.5);
-    cursor:pointer;
+  border-radius: 10px;
+  background-color: rgba(222, 222, 222, 0.5);
+  cursor: pointer;
 }
-.active {
-    border-radius: 10px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
+.nav-item a {
+  padding: 10px;
+  color: inherit;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
+  background: none;
 }
-.nav-item button {
-    padding: 10px;
-    color: inherit;
-    border-radius: 10px;
-    border: 2px solid transparent;
-    text-decoration: none;
-    font-size: 18px;
-    font-family:'Courier New', Courier, monospace;
-    background: none;
+
+.home-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 100px 0 0 0;
+  width: 100%;
+  line-height: 1.5;
+}
+.profile-container {
+  display: block;
+}
+#home {
+  top: 100px;
+}
+#home-profile {
+  border-radius: 10px;
+}
+#contacts {
+  font-size: 13px;
+}
+#contacts a {
+  text-decoration: none;
+  color: cornflowerblue;
+}
+#contacts a:visited {
+  text-decoration: none;
+  color: cornflowerblue;
+}
+.flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+}
+.home-textarea {
+  min-width: 120;
+  width: 120; /* or whatever width you want. */
+  max-width: 120; /* or whatever width you want. */
+  display: inline-block;
+}
+
+.project-container {
+  padding: 100px 0 0 0;
+}
+.project-item {
+  display: flex;
+  width: 120;
+  margin: 40px 20px;
+  gap: 20px;
+  border: 1px 0px solid;
+  align-items: center;
+}
+.project-item.clickable {
+  cursor: pointer;
+}
+.project-title {
+  font-size: 20px;
+}
+.project-thumbnail {
+  display: flex;
+  border-radius: 10px;
+  width: 156px;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+img {
+  object-fit: cover;
+}
+.textbox {
+  font: size 11px;
+}
+a {
+  text-decoration: none;
+  color: cornflowerblue;
 }

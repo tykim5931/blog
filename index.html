@@ -1,37 +1,324 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>TaeyunKim</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
-    <body>
-        <script src="./index.js"></script>
-        <div class="nav">
-            <div class="nav-items">
-                <!--Research Interest, Download CV, contacts-->
-                <div class="nav-item active" >
-                    <button onclick="openTab('home')">Home</button> 
+  <head>
+    <meta charset="utf-8" />
+    <title>TaeyunKim</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <div class="navigation-bar">
+      <ul class="nav nav-tabs" id="myTab">
+        <li class="nav-item">
+          <a href="#home" class="nav-link active" data-toggle="tab">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#projects" class="nav-link" data-toggle="tab">
+            Research Projects
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#development" class="nav-link" data-toggle="tab">
+            Development
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+            <a href="#bolog" class="nav-link" data-toggle="tab">Blog</a>
+        </li> -->
+      </ul>
+    </div>
+
+    <div class="tab-body">
+      <div class="tab-content">
+        <div id="home" class="tab-pane active">
+          <div class="home-container">
+            <div class="profile-container">
+              <img
+                src="./assets/profile.jpg"
+                id="home-profile"
+                width=""
+                height="230px"
+                alt="profile"
+              />
+              <div id="contacts">
+                <div class="flexbox">
+                  Curriculm Viate(CV)
+                  <a href="./assets/taeyunkim_CV_new.pdf" target="_blank"
+                    >download</a
+                  >
                 </div>
-                <!--Projects I've done-->
-                <div class="nav-item">
-                    <button onclick="openTab('projects')">Projects</button>
+                <div class="flexbox">
+                  Email
+                  <a href="mailto: taeyunkim@dgist.ac.kr"
+                    >taeyunkim@dgist.ac.kr</a
+                  >
                 </div>
-                <!--BLOG files-->
-                <div class="nav-item">
-                    <button onclick="openTab('blog')">Blog</button>
+                <div class="flexbox">
+                  Github
+                  <a href="https://github.com/tykim5931" target="_blank"
+                    >github.com/tykim5931</a
+                  >
                 </div>
+              </div>
             </div>
+            <div class="home-textarea">
+              <h2>Hello, I'm Taeyun Kim!</h2>
+              <p>
+                I am an undergraduate student majoring in Computer Science &
+                Engineering at the College of Transdisciplinary Studies in
+                DGIST, Korea.
+                <br />
+                As a passionate and driven prospective researcher in the field
+                of 3D vision and graphics with AI, I am currently studying
+                innovative ways to reconstruct fine-grained 3D models from 2D
+                images.
+              </p>
+              <p>
+                My aim is to contribute to creating a future where 3D data is
+                easily accessible and can be utilized to its full potential,
+                just as how data has evolved from text to voice, images, and
+                videos. I strongly believe that advancements in the format of
+                data will shape the way humans think, interact and solve
+                problems, and I am eager to be part of this transformative and
+                dynamic field.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="tab-body">
-            <div class="tab-content" id="home">
-                <h2>Home</h2>
+
+        <div class="tab-content">
+          <div id="projects" class="tab-pane fade">
+            <div class="project-container">
+              <h2>Research Projects</h2>
+              <div class="project-item">
+                <img
+                  class="project-thumbnail"
+                  src="./assets/carcrash.png"
+                  alt="profile"
+                />
+                <div class="project-info">
+                  <h3>
+                    Predicting unseen danger in road circumstance
+                    <a href="https://vilslab.dgist.ac.kr/" target="_blank"
+                      >(VILS)</a
+                    >
+                  </h3>
+                  <p>
+                    CarCrash dataset, ViViT model for object recognition and
+                    danger perception.
+                    <a href="./projects/unseen.html">Details</a>
+                  </p>
+                </div>
+              </div>
+              <div class="project-item">
+                <img
+                  class="project-thumbnail"
+                  src="./assets/vils.jpeg"
+                  alt="profile"
+                />
+                <div class="project-info">
+                  <h3>
+                    Building an Autonomous car
+                    <a href="https://vilslab.dgist.ac.kr/" target="_blank"
+                      >(VILS)</a
+                    >
+                  </h3>
+                  <p>
+                    SCC/AEB system of autonomous car, PointCloud, Vision Data,
+                    object detection and automatic control
+                    <a href="./projects/vils.html">Details</a>
+                  </p>
+                </div>
+              </div>
+              <div class="project-item">
+                <img
+                  class="project-thumbnail"
+                  src="./assets/agv_localization.png"
+                  alt="profile"
+                />
+                <div class="project-info">
+                  <h3>
+                    Indoor-Localization of AGV: network packets and trajectory
+                    [UGRP]
+                  </h3>
+                  <p>
+                    Localization for AGV in indoor environment might be tricky.
+                    Because GPS does not work indoors, various solutions using
+                    networks - such as bluetooth, zigbee, wifi - has been
+                    researched. Utilizing networks for indoor localization
+                    <a href="./projects/ugrp.html">Details</a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-item">
+                <img
+                  class="project-thumbnail"
+                  src="./assets/brain_thumbnail.png"
+                  alt="profile"
+                />
+                <div class="project-info">
+                  <h3>
+                    Machine Learning for detecting drivers' drowsiness
+                    <a
+                      href="https://dgist-lab.wixsite.com/brainlab"
+                      target="_blank"
+                      >(BRAIN)</a
+                    >
+                  </h3>
+                  <p>
+                    I trained machine learning and deep learning models to
+                    predict a driver's level of sleepiness based on brain
+                    signals. I managed entire learning process from designing
+                    and extracting training data from raw data, constructing
+                    models, training adn analyzing the results.
+                    <a href="./projects/brain.html">Details</a>
+                  </p>
+                </div>
+              </div>
+              <!-- 4 -->
+              <div class="project-item">
+                <img
+                  class="project-thumbnail"
+                  src="./assets/coin_trader.png"
+                  alt="profile"
+                />
+                <div class="project-info">
+                  <h3>Surf on Chart: Training RL model for coin trading</h3>
+                  <p>
+                    Agents were trained to perform coin trading using
+                    reinforcement learning algorithms such as DQN, DDQN, A2C,
+                    PPO.
+                    <a href="https://github.com/tensorforce/tensorforce"
+                      >Tensorforce</a
+                    >
+                    library was used to implement the agents, and multiple tests
+                    were conducted to find optimal tuning parameters. In our
+                    experiments, the PPO agent was revealed to generate the
+                    highest profit. However, due to the high frequency of
+                    learning results falling into local optima, they cannot be
+                    fully trusted.
+                    <a href="./projects/rltrader.html">Details</a>
+                  </p>
+                </div>
+              </div>
+              <!-- 5 -->
+              <div class="project-item">
+                <img
+                  class="project-thumbnail"
+                  src="./assets/hass.png"
+                  alt="profile"
+                />
+                <div class="project-info">
+                  <h3>
+                    Delivery drone digital twin: Finding trajactory
+                    <a
+                      href="https://sites.google.com/view/hass-dgist/?pli=1"
+                      target="_blank"
+                    >
+                      (HASS Lab)
+                    </a>
+                  </h3>
+                  <p>
+                    The use of 3D data has endless applications, but it would be
+                    particularly useful in fields such as digital twin systems,
+                    where it can accurately replicate real-world environments.
+                    By utilizing Unity, I studied algorithms such as Neural A*
+                    and simple waypoint to enable a drone object to navigate a
+                    3D city model with rigid body properties and reach its
+                    destination.
+                    <a href="./projects/digital_twin.html">Details</a>
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="tab-content" id="projects" style="display: none;">
-                <iframe class="tab-inbox" src="./projects/proj_main.html"></iframe>
+
+            <div id="development" class="tab-pane fade">
+              <div class="project-container">
+                <h2>Development Experiences & Projects</h2>
+                <div class="project-item">
+                  <img
+                    class="project-thumbnail"
+                    src="./assets/classum.png"
+                    alt="profile"
+                  />
+                  <div class="project-info">
+                    <h3>React Web development in CLASSUM</h3>
+                    <p class="textbox">
+                      As a frontend developer for CLASSUM, I took charge of the
+                      web product interfaces, with a primary focus on
+                      <b>feature implementation, bug resolution</b>, and
+                      <b>development of a text editor module</b> to enhance the
+                      product's functionality.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="project-item">
+                  <img
+                    class="project-thumbnail"
+                    src="./assets/d_galapagos.jpeg"
+                    alt="profile"
+                  />
+                  <div class="project-info">
+                    <h3>
+                      My Little Galapagos: 3d simulator of natural selection
+                      theory
+                    </h3>
+                    <p>
+                      Natural selection may seem like a straightforward concept,
+                      but in reality, it can be very difficult for a species to
+                      survive in a harsh environment from one generation to the
+                      next. To help you better understand this process, me and
+                      my team have created a web program that simulates the
+                      natural selection. Find in
+                      <a href="https://github.com/tykim5931/madcamp_week4">
+                        github</a
+                      >. It is also served at
+                      <a href="http://galapagossimul.cafe24app.com/">here</a>.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="project-item">
+                  <img
+                    class="project-thumbnail"
+                    src="./assets/d_minesweeper.png"
+                    alt="profile"
+                  />
+                  <div class="project-info">
+                    <h3>Hackerton, Coding Camp, Etc</h3>
+                    <p>
+                      Some projects using React and Redux:
+                      <a href="https://github.com/tykim5931/Minesweepr"
+                        >Minesweeper</a
+                      >,
+                      <a href="https://github.com/tykim5931/Google-form-copycat"
+                        >GoogleForm</a
+                      >
+                      <br />Chrome extension development:
+                      <a href="https://github.com/tykim5931/madcamp_week3"
+                        >Time Saver</a
+                      >
+                      <br />App development:
+                      <a href="https://github.com/tykim5931/madcamp_week1"
+                        >Madcamp1</a
+                      >,
+                      <a href="https://github.com/tykim5931/madcamp_week2"
+                        >MalangMalang game</a
+                      >,
+                      <a
+                        href="https://github.com/SPARCS-2023-StartUp-Hackathon-2/Netgalpi"
+                        >Netgalpi</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="tab-content" id="blog" style="display: none;">
-                <h2>Blog</h2>
-            </div>
-    </body>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
